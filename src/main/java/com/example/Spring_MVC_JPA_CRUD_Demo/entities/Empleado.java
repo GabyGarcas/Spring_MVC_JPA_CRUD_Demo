@@ -2,6 +2,7 @@ package com.example.Spring_MVC_JPA_CRUD_Demo.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -57,7 +59,16 @@ public class Empleado implements Serializable{
 
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)  //de muchos empleados a un departamento
-    // queremos que no este asociando empleados con departamento. luego como queremos que se propague el cambio en este caso, cascade
+    
+    // queremos que no este asociando empleados con telefonos. luego como queremos que se propague el cambio en este caso, cascade
     private Departamento departamento;
+
+@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "empleado")
+private List<Telefono> telefonos;
+
+// queremos que no este asociando empleados con correos. luego como queremos que se propague el cambio en este caso, cascade
+
+@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "empleado")
+private List<Correo> correos;
 
 }
