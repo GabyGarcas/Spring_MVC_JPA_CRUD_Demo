@@ -58,7 +58,7 @@ public class Empleado implements Serializable{
     private Genero genero;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)  //de muchos empleados a un departamento
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)  //de muchos empleados a un departamento
     
     // queremos que no este asociando empleados con telefonos. luego como queremos que se propague el cambio en este caso, cascade
     private Departamento departamento;

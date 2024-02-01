@@ -88,8 +88,8 @@ Empleado empleado2 = Empleado.builder()
 .salario(2000)
 .build();
 
-// empleadoService.persistirEmpleado(empleado1);
-// empleadoService.persistirEmpleado(empleado2);
+empleadoService.persistirEmpleado(empleado1);
+empleadoService.persistirEmpleado(empleado2);
 
 //Es importante agregar telefonos y correos antes de crear el empleado.
 //Detalle: como hacer para crear telefonos y correos sin idEmpleado?
@@ -100,30 +100,38 @@ Empleado empleado2 = Empleado.builder()
 
 //Telefonos de empleado1
 
-List<Telefono> telefonosEmpleado1 = new ArrayList<>();
+//List<Telefono> telefonosEmpleado1 = new ArrayList<>();
 
-Telefono telefonoEmpleado1 = Telefono.builder()
+
+Telefono telefono1Empleado1 = Telefono.builder()
 .nombre("697804446")
+.empleado(empleadoService.dameUnEmpleado(1))
 .build();
 
 
 Telefono telefono2Empleado1 = Telefono.builder()
 .nombre("414461987")
+.empleado(empleadoService.dameUnEmpleado(1))
 .build();
 
-telefonosEmpleado1.add(telefonoEmpleado1);
-telefonosEmpleado1.add(telefono2Empleado1);
+Telefono telefono3Empleado1 = Telefono.builder()
+.nombre("76543210")
+.empleado(empleadoService.dameUnEmpleado(1))
+.build();
 
-//telefonoService.persistirTelefono(0, telefonoEmpleado1);
-//telefonoService.persistirTelefono(0, telefono2Empleado1);
+// telefonosEmpleado1.add(telefonoEmpleado1);
+// telefonosEmpleado1.add(telefono2Empleado1);
+// telefonosEmpleado1.add(telefono3Empleado1);
 
-
+telefonoService.persistirTelefono(1, telefono1Empleado1);
+telefonoService.persistirTelefono(1, telefono2Empleado1);
+telefonoService.persistirTelefono(1, telefono3Empleado1);
 
 //Telefonos de empleado2
 
-List<Telefono> telefonosEmpleado2 = new ArrayList<>();
+//List<Telefono> telefonosEmpleado2 = new ArrayList<>();
 
-Telefono telefonoEmpleado2 = Telefono.builder()
+Telefono telefono1Empleado2 = Telefono.builder()
 .nombre("697804476")
 .build();
 
@@ -132,19 +140,21 @@ Telefono telefono2Empleado2 = Telefono.builder()
 .nombre("414461967")
 .build();
 
-telefonosEmpleado2.add(telefonoEmpleado2);
-telefonosEmpleado2.add(telefono2Empleado2);
+// telefonosEmpleado2.add(telefonoEmpleado2);
+// telefonosEmpleado2.add(telefono2Empleado2);
 
-// telefonoService.persistirTelefono(0, telefonoEmpleado2);
-// telefonoService.persistirTelefono(0, telefono2Empleado2);
+
+telefonoService.persistirTelefono(2, telefono1Empleado2);
+telefonoService.persistirTelefono(2, telefono2Empleado2);
 
 //__________________________________________________________________________________________________
 //Creamos los correos 
 //Correo del empleado1
 
-List<Correo> correosEmpleado1 = new ArrayList<>();
+//List<Correo> correosEmpleado1 = new ArrayList<>();
 
-Correo correoEmpleado1 = Correo.builder()
+
+Correo correo1Empleado1 = Correo.builder()
 .correo("almudena@capgemini.com")
 .build();
 
@@ -153,18 +163,20 @@ Correo correo2Empleado1 = Correo.builder()
 .correo("almuLopez@capgemini.com")
 .build();
 
-correosEmpleado1.add(correoEmpleado1);
-correosEmpleado1.add(correo2Empleado1);
+// correosEmpleado1.add(correo1Empleado1);
+// correosEmpleado1.add(correo2Empleado1);
 
 // correoService.persistirCorreos(0, correoEmpleado1);
 // correoService.persistirCorreos(0, correo2Empleado1);
 
+correoService.persistirCorreos(1, correo1Empleado1);
+correoService.persistirCorreos(1, correo2Empleado1);
 
 //Correo del empleado2
 
-List<Correo> correosEmpleado2 = new ArrayList<>();
+//List<Correo> correosEmpleado2 = new ArrayList<>();
 
-Correo correoEmpleado2 = Correo.builder()
+Correo correo1Empleado2 = Correo.builder()
 .correo("ramon@capgemini.com")
 .build();
 
@@ -173,11 +185,11 @@ Correo correo2Empleado2 = Correo.builder()
 .correo("rCastillo@capgemini.com")
 .build();
 
-correosEmpleado2.add(correoEmpleado2);
-correosEmpleado2.add(correo2Empleado2);
+// correosEmpleado2.add(correoEmpleado2);
+// correosEmpleado2.add(correo2Empleado2);
 
-// correoService.persistirCorreos(0, correoEmpleado2);
-// correoService.persistirCorreos(0, correo2Empleado2);
+correoService.persistirCorreos(2, correo1Empleado2);
+correoService.persistirCorreos(2, correo2Empleado2);
 
 	}
 }
